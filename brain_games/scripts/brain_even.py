@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-from cli import welcome_user
+from even import even
 
 
 def main():
-    welcome_user()
+    even()
 
 
 if __name__ == '__main__':
