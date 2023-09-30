@@ -16,7 +16,8 @@ def progression():
         iter_value = random.randint(2, 7)
         first_value = random.randint(1, 20)
         empty_space_position = random.randint(0, progression_len - 1)
-        list_of_num = [(first_value + iter_value * i) for i in range(progression_len)]
+        list_of_num = [(first_value + iter_value * i)
+                       for i in range(progression_len)]
         correct_answer = f"{list_of_num[empty_space_position]}"
         question = ""
         for j in list_of_num:

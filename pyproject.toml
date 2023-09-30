@@ -1,12 +1,16 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "includes text-based math games with 3 questions each."
 authors = ["Andrey-Grechushchev <grechushevAI@gmail.com>"]
 readme = "README.md"
 packages = [
 	{ include = "brain_games" },
 ]
+classifiers = [
+	"Programming Language :: Python :: 3.8"
+]
+repository = "https://github.com/Andrey-Grechushchev/python-project-49"
 
 [tool.poetry.dependencies]
 python = "^3.8"

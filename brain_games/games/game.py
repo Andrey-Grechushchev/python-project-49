@@ -9,6 +9,7 @@ def game(question, correct_answer, i, number_of_questions, name):
         if i == number_of_questions - 1:
             print(f"Congratulations, {name}!")
     else:
-        print(f"""'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.
+        print(f"""\
+'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.
 Let's try again, {name}!""")
         return False
