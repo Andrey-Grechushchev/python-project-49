@@ -4,7 +4,7 @@ from brain_games.welcome_user import welcome_user
 
 
 def prime():
-    how_to_answer = ('Answer "yes" if given number is prime.'
+    how_to_answer = ('Answer "yes" if given number is prime. '
                      'Otherwise answer "no".')
     number_of_question = 3
     name = welcome_user()
