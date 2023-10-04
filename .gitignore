@@ -3,3 +3,4 @@ __pycache__/
 */cli.py
 */brain_games.py
 dist/
+*.swp
