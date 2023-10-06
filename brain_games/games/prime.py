@@ -1,23 +1,23 @@
 import random
-from brain_games.games.game import game
+from brain_games import constants
+from brain_games.game import run_game
 from brain_games.welcome_user import welcome_user
 
 
 def prime():
-    how_to_answer = ('Answer "yes" if given number is prime. '
-                     'Otherwise answer "no".')
-    number_of_question = 3
     name = welcome_user()
-    print(how_to_answer)
+    print(constants.INTRO_PRIME)
     result = True
-    for i in range(number_of_question):
-        if result is False:
+    for i in range(constants.NUMBER_OF_QUESTIONS):
+        if not result:
             break
-        question = random.randint(1, 100)
-        prime = True
+        question = random.randint(constants.MIN_NUM_PRIME,
+                                  constants.MAX_NUM_PRIME)
+        is_prime = True
         for j in range(2, question // 2 + 1):
-            prime *= question % j != 0
-            if not prime:
+            is_prime *= question % j != 0
+            if not is_prime:
                 break
-        correct_answer = prime and "yes" or "no"
-        result = game(question, correct_answer, i, number_of_question, name)
+        correct_answer = is_prime and "yes" or "no"
+        result = run_game(question, correct_answer, i,
+                          constants.NUMBER_OF_QUESTIONS, name)

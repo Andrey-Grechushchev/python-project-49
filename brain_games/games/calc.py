@@ -1,21 +1,21 @@
 import random
-from brain_games.games.game import game
+from brain_games import constants
+from brain_games.game import run_game
 from brain_games.welcome_user import welcome_user
 
 
 def calc():
-    how_to_answer = "What is the result of the expression?"
-    number_of_question = 3
-    math_oper = ["+", "-", "*"]
     name = welcome_user()
-    print(how_to_answer)
+    print(constants.INTRO_CALC)
     result = True
-    for i in range(number_of_question):
-        if result is False:
+    for i in range(constants.NUMBER_OF_QUESTIONS):
+        if not result:
             break
-        a = random.randint(1, 30)
-        b = random.randint(1, 15)
-        j = random.randint(0, 2)
-        question = f"{a} {math_oper[j]} {b}"
-        correct_answer = f"{eval(str(a) + math_oper[j] + str(b))}"
-        result = game(question, correct_answer, i, number_of_question, name)
+        a = random.randint(constants.MIN_NUM_CALC_1, constants.MAX_NUM_CALC_1)
+        b = random.randint(constants.MIN_NUM_CALC_2, constants.MAX_NUM_CALC_2)
+        j = random.randint(0, len(constants.MATH_OPERATORS) - 1)
+        question = f"{a} {constants.MATH_OPERATORS[j]} {b}"
+        correct_answer = f"""\
+{eval(str(a) + constants.MATH_OPERATORS[j] + str(b))}"""
+        result = run_game(question, correct_answer, i,
+                          constants.NUMBER_OF_QUESTIONS, name)

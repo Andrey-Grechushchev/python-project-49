@@ -1,17 +1,18 @@
 import random
-from brain_games.games.game import game
+from brain_games import constants
+from brain_games.game import run_game
 from brain_games.welcome_user import welcome_user
 
 
 def even():
-    how_to_answer = 'Answer "yes" if the number is even, otherwise answer "no".'
-    number_of_question = 3
     name = welcome_user()
-    print(how_to_answer)
+    print(constants.INTRO_EVEN)
     result = True
-    for i in range(number_of_question):
-        if result is False:
+    for i in range(constants.NUMBER_OF_QUESTIONS):
+        if not result:
             break
-        question = random.randint(1, 100)
+        question = random.randint(constants.MIN_NUM_EVEN,
+                                  constants.MAX_NUM_EVEN)
         correct_answer = question % 2 == 0 and "yes" or "no"
-        result = game(question, correct_answer, i, number_of_question, name)
+        result = run_game(question, correct_answer, i,
+                          constants.NUMBER_OF_QUESTIONS, name)
